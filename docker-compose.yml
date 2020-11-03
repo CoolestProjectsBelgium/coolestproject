@@ -1,0 +1,39 @@
+version: "3.4"
+
+services:
+  db:
+    image: mysql/mysql-server
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: coolestproject
+      MYSQL_DATABASE: coolestproject
+      MYSQL_USER: coolestproject
+      MYSQL_PASSWORD: Se84KCCCJlnfkdfv
+  # frontend:
+  #   image: node-hello
+  #   build: ./frontend
+  #   environment:
+  #     NODE_ENV: development
+  #   ports:
+  #     - 3000
+  #     - 9229:9229
+  #   command: node --inspect=0.0.0.0:9229 ./bin/www
+
+  backend:
+    image: coolestproject-backend
+    build: ./backend
+    env_file:
+      - configuration.env
+    environment:
+      NODE_ENV: development
+      DB: mysql://coolestproject:Se84KCCCJlnfkdfv@db:3306/coolestproject
+    ports:
+      - 8080:8080
+    command: npm run dev
+    depends_on:
+      - db
+
+volumes:
+  db_data: {}
