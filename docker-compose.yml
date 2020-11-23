@@ -18,6 +18,7 @@ services:
     build: ./backend
     volumes:
       - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
     env_file:
       - configuration.env
     environment:
@@ -25,7 +26,7 @@ services:
       DB: mysql://coolestproject:Se84KCCCJlnfkdfv@db:3306/coolestproject
     ports:
       - 8080:8080
-    command: npm run dev
+    command: npm run development
     depends_on:
       - db
 
@@ -36,6 +37,7 @@ services:
       NUXT_ENV_BASE_URL: http://localhost:8080
     volumes:
       - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
     env_file:
       - configuration.env
     ports:
