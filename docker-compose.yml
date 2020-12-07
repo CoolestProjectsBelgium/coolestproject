@@ -22,7 +22,7 @@ services:
     env_file:
       - configuration.env
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
       DB: mysql://coolestproject:Se84KCCCJlnfkdfv@db:3306/coolestproject
     ports:
       - 8080:8080
