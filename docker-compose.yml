@@ -13,6 +13,11 @@ services:
       MYSQL_USER: coolestproject
       MYSQL_PASSWORD: Se84KCCCJlnfkdfv
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8081:80
+
   backend:
     image: coolestproject-backend
     build: ./backend
