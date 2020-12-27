@@ -17,6 +17,8 @@ services:
     image: phpmyadmin/phpmyadmin
     ports:
       - 8081:80
+    depends_on:
+      - db
 
   backend:
     image: coolestproject-backend
