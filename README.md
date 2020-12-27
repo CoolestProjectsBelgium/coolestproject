@@ -1,4 +1,5 @@
 # Coolestproject
+
 Main repository for the coolestproject application. Contains the Docker Compose development setup.
 
 ## History
@@ -26,30 +27,34 @@ $ show tables;
 ### Application server
 
 Based on Swagger with Express, PassportJS, Adminbro, JWT and Sequelize.
-* https://swagger.io/tools/swagger-codegen/
-* http://www.passportjs.org/
-* https://adminbro.com/
-* https://jwt.io/
-* https://sequelize.org/
-* https://expressjs.com/
-* https://www.npmjs.com/package/email-templates
+
+- https://swagger.io/tools/swagger-codegen/
+- http://www.passportjs.org/
+- https://adminbro.com/
+- https://jwt.io/
+- https://sequelize.org/
+- https://expressjs.com/
+- https://www.npmjs.com/package/email-templates
 
 ### Frontend
 
 Developed in NuxtJS with BootstrapVue.
-* https://nuxtjs.org/
-* https://bootstrap-vue.org/
-* https://www.npmjs.com/package/vuex-persist
+
+- https://nuxtjs.org/
+- https://bootstrap-vue.org/
+- https://www.npmjs.com/package/vuex-persist
 
 ## Development Setup
+
 Create a configuration.env file, adapt the mail and secrets variable, NODE_ENV cannot be DEVELOPMENT !! (we have a bug in the mailing lib)
 
 configuration.env
+
 ```
 EMAIL=info@coolestprojects.be
 NODE_ENV=production
 
-LANG=nl-BE 
+LANG=nl-BE
 
 MAIL_HOST=**
 MAIL_PORT=**
@@ -73,19 +78,23 @@ $ docker-compose up
 $ cli init_db
 $ npx sequelize db:seed:all
 ```
+
 ### URL's
-* http://localhost:8080/admin
-* http://localhost:3000
+
+- http://localhost:8080/admin
+- http://localhost:3000
 
 ### Backend Administration
-Accounts are created with the *accounts.js seeder file.
-| Email                    | Password |
+
+Accounts are created with the \*accounts.js seeder file.
+| Email | Password |
 | ------------------------ | -------- |
-| admin@coolestprojects.be | admin    |
-| super@coolestprojects.be | super    |
-| jury@coolestprojects.be  | jury     |
+| admin@coolestprojects.be | admin |
+| super@coolestprojects.be | super |
+| jury@coolestprojects.be | jury |
 
 ### Created Containers
+
 | Name                    |
 | ----------------------- |
 | coolestproject-frontend |
