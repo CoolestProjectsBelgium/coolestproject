@@ -77,6 +77,7 @@ $ docker-compose up
 # connect to the backend container
 $ cli init_db
 $ npx sequelize db:seed:all
+
 ```
 
 ### URL's
