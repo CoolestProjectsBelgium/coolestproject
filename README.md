@@ -54,7 +54,7 @@ configuration.env
 EMAIL=info@coolestprojects.be
 NODE_ENV=production
 
-LANG=nl-BE
+LANG=nl
 
 MAIL_HOST=**
 MAIL_PORT=**
@@ -87,11 +87,11 @@ $ npx sequelize db:seed:all
 ### Backend Administration
 
 Accounts are created with the \*accounts.js seeder file.
-| Email | Password |
+| Email                    | Password |
 | ------------------------ | -------- |
-| admin@coolestprojects.be | admin |
-| super@coolestprojects.be | super |
-| jury@coolestprojects.be | jury |
+| admin@coolestprojects.be | admin    |
+| super@coolestprojects.be | super    |
+| jury@coolestprojects.be  | jury     |
 
 ### Created Containers
 
