@@ -97,11 +97,11 @@ to chek running sql pids do :
 ### Backend Administration
 
 Accounts are created with the \*accounts.js seeder file.
-| Email                    | Password |
+| Email | Password |
 | ------------------------ | -------- |
-| admin@coolestprojects.be | admin    |
-| super@coolestprojects.be | super    |
-| jury@coolestprojects.be  | jury     |
+| admin@coolestprojects.be | admin |
+| super@coolestprojects.be | super |
+| jury@coolestprojects.be | jury |
 
 ### Created Containers
 
