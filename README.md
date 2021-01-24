@@ -77,16 +77,6 @@ URL=http://localhost:3000
 # connect to the backend container
     $ cli init_db
     $ npx sequelize db:seed:all
-(==>
-In case of problems with containers do the following:
-go to the 1:bash terminal of the system and remove the containers by
-    docker stop $(docker ps -a -q)
-    docker rm $(docker ps -a -q)
-    restart then with the ... console commands above
-to chek running sql pids do :
-    ps aux | grep -i sql
-<==)
-
 ```
 
 ### URL's
