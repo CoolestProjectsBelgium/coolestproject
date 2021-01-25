@@ -74,9 +74,9 @@ URL=http://localhost:3000
 ```console
 docker-compose up
 # connect to the backend container
+npm install -g .
 cli init_db
 npx sequelize db:seed:all
-npm install -g .
 ```
 
 ### URL's
