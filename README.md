@@ -19,9 +19,9 @@ The application is a JAMstack 3 tier design.
 Any DB supporting Sequelize.
 
 ```console
-$ mysql -u coolestproject -p Se84KCCCJlnfkdfv
-$ use database coolestproject;
-$ show tables;
+mysql -u coolestproject -p Se84KCCCJlnfkdfv
+use database coolestproject;
+show tables;
 ```
 
 ### Application server
@@ -48,9 +48,9 @@ Developed in NuxtJS with BootstrapVue.
 
 Create a configuration.env file, adapt the mail and secrets variable, NODE_ENV cannot be DEVELOPMENT !! (we have a bug in the mailing lib)
 
-configuration.env
+### configuration.env
 
-```
+```.env
 EMAIL=info@coolestprojects.be
 NODE_ENV=production
 
@@ -64,35 +64,31 @@ MAIL_PASS=**
 SECRET_KEY=**
 
 # In seconds
-TOKEN_VALID_TIME=172800000
+TOKEN_VALID_TIME=172800
 TOKEN_RESEND_TIME=1
 
 # needed for CORS headers backend -> frontend
 URL=http://localhost:3000
-
 ```
 
 ```console
-    $ docker-compose up
+docker-compose up
 # connect to the backend container
-    $ cli init_db
-    $ npx sequelize db:seed:all
-(==>
-In case of problems with containers do the following:
-go to the 1:bash terminal of the system and remove the containers by
-    docker stop $(docker ps -a -q)
-    docker rm $(docker ps -a -q)
-    restart then with the ... console commands above
-to chek running sql pids do :
-    ps aux | grep -i sql
-<==)
-
+cli init_db
+npx sequelize db:seed:all
 ```
 
 ### URL's
 
-- http://localhost:8080/admin
-- http://localhost:3000
+- <http://localhost:8080/admin>
+- <http://localhost:3000>
+- <http://localhost:8081>
+
+for PHPMyAdmin you need to lookup the password on in the docker-compose file.
+| Name     | Value            |
+|----------|------------------|
+| Username | coolestproject   |
+| password | Se84KCCCJlnfkdfv |
 
 ### Backend Administration
 
@@ -110,3 +106,21 @@ Accounts are created with the \*accounts.js seeder file.
 | coolestproject-frontend |
 | coolestproject-backend  |
 | mysql/mysql-server      |
+| phpmyadmin/phpmyadmin   |
+
+### Known issues
+
+In case of problems with containers do the following go to the bash terminal of the system and remove the containers
+
+```console
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+```
+
+restart then with the ... console commands above
+
+to check running sql pids
+
+```console
+ps aux | grep -i sql
+```
