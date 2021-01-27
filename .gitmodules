@@ -1,6 +1,6 @@
 [submodule "backend"]
 	path = backend
-	url = https://github.com/DoublG/coolestproject-backend.git
+	url = https://github.com/CoolestProjectsBelgium/coolestproject-backend.git
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/DoublG/coolestproject-registratie.git
+	url = https://github.com/CoolestProjectsBelgium/coolestproject-registratie.git
