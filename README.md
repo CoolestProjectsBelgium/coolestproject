@@ -79,6 +79,17 @@ cli init_db
 npx sequelize db:seed:all
 ```
 
+Testing the emails
+Setup Mailtrap or similar, out credentials in configuration.env
+```console
+docker-compose up
+# connect to the backend container
+npm install -g .
+cli mail welcomeMailOwner 1
+cli mail activationMail 2
+etc...
+```
+
 ### URL's
 
 - <http://localhost:8080/admin>
