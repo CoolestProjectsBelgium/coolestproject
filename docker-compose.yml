@@ -1,6 +1,6 @@
 version: "3.4"
 
-services:
+services :
   db:
     image: mysql/mysql-server
     container_name: coolestproject-db
