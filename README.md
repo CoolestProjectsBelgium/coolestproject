@@ -136,3 +136,6 @@ to check running sql pids
 ```console
 ps aux | grep -i sql
 ```
+
+### Azure setup
+* NodeJS Version : v14.15.0
