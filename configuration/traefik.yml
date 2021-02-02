@@ -1,0 +1,10 @@
+tls:
+  certificates:
+    - certFile: /configuration/certs/pki/ca.crt
+    - certFile: /configuration/certs/pki/issued/app.coolestprojects.localhost.crt
+      keyFile: /configuration/certs/pki/private/app.coolestprojects.localhost.key
+    - certFile: /configuration/certs/pki/issued/backend.coolestprojects.localhost.crt
+      keyFile: /configuration/certs/pki/private/backend.coolestprojects.localhost.key
+  options:
+    default:
+      sniStrict: true
