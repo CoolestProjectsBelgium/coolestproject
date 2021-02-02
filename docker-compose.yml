@@ -12,11 +12,6 @@ services :
       - "--entrypoints.web.address=:1234"
       - "--providers.file.directory=/configuration/"
       - "--providers.file.watch=true"
-      #- "--certificatesresolvers.main.acme.httpchallenge=true"
-      #- "--certificatesresolvers.main.acme.httpchallenge.entrypoint=web"
-      #- "--certificatesresolvers.main.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-      #- "--certificatesresolvers.main.acme.email=postmaster@example.com"
-      #- "--certificatesresolvers.main.acme.storage=/letsencrypt/acme.json"
     ports:
       - "1234:1234"
       - "8080:8080"
@@ -54,8 +49,6 @@ services :
     environment:
       NODE_ENV: production
       DB: mysql://coolestproject:Se84KCCCJlnfkdfv@db:3306/coolestproject
-    #ports:
-    #  - 4000:8080
     command: npm run development
     depends_on:
       - db
@@ -75,8 +68,6 @@ services :
       - /usr/src/app/node_modules
     env_file:
       - configuration.env
-    #ports:
-    #  - 3000:3000
     command: npm run dev2
     depends_on:
       - backend
