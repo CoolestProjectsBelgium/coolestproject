@@ -68,7 +68,15 @@ TOKEN_VALID_TIME=172800
 TOKEN_RESEND_TIME=1
 
 # needed for CORS headers backend -> frontend
-URL=http://localhost:3000
+URL=https://app.coolestprojects.localhost:1234
+NUXT_ENV_DOMAIN=coolestprojects.localhost
+DOMAIN_COOKIE=coolestprojects.localhost
+
+DEBUG=email-templates
+
+SECURE_COOKIE=false
+SAMESITE_COOKIE=Lax
+
 ```
 
 ```console
@@ -91,10 +99,18 @@ etc...
 ```
 
 ### URL's
+We are using treafik as a proxy server. You can view the configuration:
+- <http://localhost:8080>
 
-- <http://localhost:8080/admin>
-- <http://localhost:3000>
-- <http://localhost:8081>
+Main url:
+- <http://localhost:1234>
+
+## you need to adapt your hostfile
+
+```console
+127.0.0.1  backend.coolestprojects.localhost
+127.0.0.1  app.coolestprojects.localhost
+```
 
 for PHPMyAdmin you need to lookup the password on in the docker-compose file.
 | Name     | Value            |
@@ -119,6 +135,7 @@ Accounts are created with the \*accounts.js seeder file.
 | coolestproject-backend  |
 | mysql/mysql-server      |
 | phpmyadmin/phpmyadmin   |
+| traefik:v2.4            |
 
 ### Known issues
 
