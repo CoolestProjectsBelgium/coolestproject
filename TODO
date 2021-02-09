@@ -3,3 +3,5 @@ Todo:
   ☐ Deleten Deleten vertalen. Onduidelijk hoe de vertaal lib dan werkt in de .vue context
   ☐ ESlint fixen. Geeft error: [Error - 01:06:54] Error: Failed to load config "@nuxtjs" to extend from.  Referenced from: C:\Users\TomHaepers\Git\CDJ\coolestproject\frontend\.eslintrc.js
   ☐ Setup Debug configuration for docker
+  ☐ Add a column 'count' into the tshirts table behind name to use for automatic counting of tshirt sizes comming from Users
+  ☐ Build sql call to update counter of tshirt sizes with every insert of a new user and/or on demand
