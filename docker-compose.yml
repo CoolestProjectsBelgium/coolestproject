@@ -2,7 +2,7 @@ version: "3.4"
 
 services :
   proxy:    
-    image: "traefik:v2.4"
+    image: "traefik:v2.4.5"
     container_name: "coolestproject-proxy"
     command:
       - "--log.level=DEBUG"
@@ -77,6 +77,20 @@ services :
       - "traefik.http.routers.frontend-coolestprojects.entrypoints=web"
       - "traefik.http.routers.frontend-coolestprojects.tls=true"
 
+  azure:
+    image: mcr.microsoft.com/azure-storage/azurite
+    container_name: coolestproject-azure
+    command: "azurite-blob --loose --cert /pki/issued/azure.coolestprojects.localhost.crt --key /pki/private/azure.coolestprojects.localhost.key --blobHost 0.0.0.0"
+    volumes:
+      - ./configuration/certs/pki:/pki
+    labels:
+      - "traefik.enable=true"
+      #- "traefik.http.routers.azure-coolestprojects.rule=Host(`azure.coolestprojects.localhost`)"
+      #- "traefik.http.routers.azure-coolestprojects.entrypoints=web"
+      #- "traefik.tcp.routers.azure-coolestprojects.rule=HostSNI(`azure.coolestprojects.localhost`)"
+      #- "traefik.tcp.routers.azure-coolestprojects.entrypoints=web"
+      #- "traefik.tcp.routers.azure-coolestprojects.tls=true"
+      #- "traefik.tcp.routers.azure-coolestprojects.tls.passthrough=true"
 
 volumes:
   db_data: {}
