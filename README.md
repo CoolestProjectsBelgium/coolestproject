@@ -156,3 +156,5 @@ ps aux | grep -i sql
 
 ### Azure setup
 * NodeJS Version : v14.15.0
+
+curl --header 'Host: https://app.coolestprojects.localhost' https://app.coolestprojects.localhost:1234 --insecure

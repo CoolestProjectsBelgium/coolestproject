@@ -2,9 +2,10 @@ version: "3.4"
 
 services :
   proxy:    
-    image: "traefik:v2.4.5"
+    image: "traefik:latest"
     container_name: "coolestproject-proxy"
     command:
+      - "--tracing=true"
       - "--log.level=DEBUG"
       - "--api.insecure=true"
       - "--providers.docker=true"
@@ -80,17 +81,24 @@ services :
   azure:
     image: mcr.microsoft.com/azure-storage/azurite
     container_name: coolestproject-azure
-    command: "azurite-blob --loose --cert /pki/issued/azure.coolestprojects.localhost.crt --key /pki/private/azure.coolestprojects.localhost.key --blobHost 0.0.0.0"
+    environment:
+      AZURITE_ACCOUNTS: "account1.blob.coolestazure:key1"
+
+    command: "azurite-blob --blobPort 1234 --loose --cert /pki/issued/account1.blob.coolestazure.localhost.crt --key /pki/private/account1.blob.coolestazure.localhost.key --blobHost coolestproject-azure --debug /configuration/azure_logs/debug.log"
     volumes:
       - ./configuration/certs/pki:/pki
+      - ./configuration/azure_logs:/configuration/azure_logs
     labels:
       - "traefik.enable=true"
-      #- "traefik.http.routers.azure-coolestprojects.rule=Host(`azure.coolestprojects.localhost`)"
-      #- "traefik.http.routers.azure-coolestprojects.entrypoints=web"
-      #- "traefik.tcp.routers.azure-coolestprojects.rule=HostSNI(`azure.coolestprojects.localhost`)"
-      #- "traefik.tcp.routers.azure-coolestprojects.entrypoints=web"
-      #- "traefik.tcp.routers.azure-coolestprojects.tls=true"
-      #- "traefik.tcp.routers.azure-coolestprojects.tls.passthrough=true"
+      - "traefik.tcp.routers.azure-coolestprojects.rule=HostSNI(`account1.blob.coolestazure.localhost`)"
+      - "traefik.tcp.routers.azure-coolestprojects.entrypoints=web"
+      - "traefik.tcp.routers.azure-coolestprojects.tls=true"
+      - "traefik.tcp.routers.azure-coolestprojects.tls.passthrough=true"
+      - "traefik.tcp.services.azure-coolestprojects.loadbalancer.server.port=1234"
+    networks:
+      default:
+        aliases:
+          - account1.blob.coolestazure.localhost
 
 volumes:
   db_data: {}
