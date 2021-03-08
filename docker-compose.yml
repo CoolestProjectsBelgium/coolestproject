@@ -24,7 +24,7 @@ services :
     image: mysql/mysql-server
     container_name: coolestproject-db
     volumes:
-      - db_data:/var/lib/mysql
+      - ./configuration/db:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: coolestproject
@@ -99,6 +99,3 @@ services :
       default:
         aliases:
           - account1.blob.coolestazure.localhost
-
-volumes:
-  db_data: {}

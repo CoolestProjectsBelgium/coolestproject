@@ -77,6 +77,10 @@ DEBUG=email-templates
 SECURE_COOKIE=false
 SAMESITE_COOKIE=Lax
 
+AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=account1.blob.coolestazure;AccountKey=key1;BlobEndpoint=https://account1.blob.coolestazure.localhost:1234;
+AZURE_STORAGE_CONTAINER=movies
+
+NODE_TLS_REJECT_UNAUTHORIZED=0
 ```
 
 ```console
@@ -129,13 +133,14 @@ Accounts are created with the \*accounts.js seeder file.
 
 ### Created Containers
 
-| Name                    |
-| ----------------------- |
-| coolestproject-frontend |
-| coolestproject-backend  |
-| mysql/mysql-server      |
-| phpmyadmin/phpmyadmin   |
-| traefik:v2.4            |
+| Name                                    |
+| --------------------------------------- |
+| coolestproject-frontend                 |
+| coolestproject-backend                  |
+| mysql/mysql-server                      |
+| phpmyadmin/phpmyadmin                   |
+| traefik:v2.4                            |
+| mcr.microsoft.com/azure-storage/azurite |
 
 ### Known issues
 
