@@ -114,6 +114,7 @@ Main url:
 ```console
 127.0.0.1  backend.coolestprojects.localhost
 127.0.0.1  app.coolestprojects.localhost
+127.0.0.1  coolestazure.localhost
 ```
 
 for PHPMyAdmin you need to lookup the password on in the docker-compose file.
@@ -158,8 +159,3 @@ to check running sql pids
 ```console
 ps aux | grep -i sql
 ```
-
-### Azure setup
-* NodeJS Version : v14.15.0
-
-curl --header 'Host: https://app.coolestprojects.localhost' https://app.coolestprojects.localhost:1234 --insecure
