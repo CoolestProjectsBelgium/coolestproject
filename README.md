@@ -140,7 +140,7 @@ Accounts are created with the \*accounts.js seeder file.
 | coolestproject-backend                  |
 | mysql/mysql-server                      |
 | phpmyadmin/phpmyadmin                   |
-| traefik:v2.4                            |
+| traefik:latest                          |
 | mcr.microsoft.com/azure-storage/azurite |
 
 ### Known issues
