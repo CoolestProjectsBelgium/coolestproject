@@ -89,6 +89,8 @@ docker-compose up
 npm install -g .
 cli init_db
 npx sequelize db:seed:all
+npx sequelize db:migrate
+
 ```
 
 Testing the emails
