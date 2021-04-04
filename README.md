@@ -159,3 +159,17 @@ to check running sql pids
 ```console
 ps aux | grep -i sql
 ```
+
+Azureite doesn't support Content-Disposition headers.
+
+### Azure setup
+
+- NodeJS Version : v14.15.0
+
+### Installation needed for VSCode Linting
+
+```console
+npm -g install eslint-plugin-nuxt
+sudo npm -g install eslint
+sudo npm -g install babel-eslint
+```
