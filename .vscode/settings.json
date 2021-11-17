@@ -7,5 +7,9 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
-    "eslint.validate": ["javascript", "yaml"]
+    "eslint.validate": [
+        "javascript",
+        "yaml"
+    ],
+    "eslint.alwaysShowStatus": true
 }

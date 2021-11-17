@@ -68,7 +68,19 @@ TOKEN_VALID_TIME=172800
 TOKEN_RESEND_TIME=1
 
 # needed for CORS headers backend -> frontend
-URL=http://localhost:3000
+URL=https://app.coolestprojects.localhost:1234
+NUXT_ENV_DOMAIN=coolestprojects.localhost
+DOMAIN_COOKIE=coolestprojects.localhost
+
+DEBUG=email-templates
+
+SECURE_COOKIE=false
+SAMESITE_COOKIE=Lax
+
+AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=account1.blob.coolestazure;AccountKey=key1;BlobEndpoint=https://account1.blob.coolestazure.localhost:1234;
+AZURE_STORAGE_CONTAINER=movies
+
+NODE_TLS_REJECT_UNAUTHORIZED=0
 ```
 
 ```console
@@ -77,6 +89,8 @@ docker-compose up
 npm install -g .
 cli init_db
 npx sequelize db:seed:all
+npx sequelize db:migrate
+
 ```
 
 Testing the emails
@@ -91,10 +105,19 @@ etc...
 ```
 
 ### URL's
+We are using treafik as a proxy server. You can view the configuration:
+- <http://localhost:8080>
 
-- <http://localhost:8080/admin>
-- <http://localhost:3000>
-- <http://localhost:8081>
+Main url:
+- <http://localhost:1234>
+
+## you need to adapt your hostfile
+
+```console
+127.0.0.1  backend.coolestprojects.localhost
+127.0.0.1  app.coolestprojects.localhost
+127.0.0.1  coolestazure.localhost
+```
 
 for PHPMyAdmin you need to lookup the password on in the docker-compose file.
 | Name     | Value            |
@@ -113,12 +136,14 @@ Accounts are created with the \*accounts.js seeder file.
 
 ### Created Containers
 
-| Name                    |
-| ----------------------- |
-| coolestproject-frontend |
-| coolestproject-backend  |
-| mysql/mysql-server      |
-| phpmyadmin/phpmyadmin   |
+| Name                                    |
+| --------------------------------------- |
+| coolestproject-frontend                 |
+| coolestproject-backend                  |
+| mysql/mysql-server                      |
+| phpmyadmin/phpmyadmin                   |
+| traefik:latest                          |
+| mcr.microsoft.com/azure-storage/azurite |
 
 ### Known issues
 
@@ -137,5 +162,16 @@ to check running sql pids
 ps aux | grep -i sql
 ```
 
+Azureite doesn't support Content-Disposition headers.
+
 ### Azure setup
-* NodeJS Version : v14.15.0
+
+- NodeJS Version : v14.15.0
+
+### Installation needed for VSCode Linting
+
+```console
+npm -g install eslint-plugin-nuxt
+sudo npm -g install eslint
+sudo npm -g install babel-eslint
+```

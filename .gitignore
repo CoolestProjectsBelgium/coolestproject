@@ -95,3 +95,6 @@ sw.*
 
 *.cmd
 nano.exe.stackdump
+
+configuration/azure_logs
+configuration/db
