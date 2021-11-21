@@ -120,6 +120,7 @@ Main url:
 ```
 
 for PHPMyAdmin you need to lookup the password on in the docker-compose file.
+
 | Name     | Value            |
 |----------|------------------|
 | Username | coolestproject   |
@@ -128,6 +129,7 @@ for PHPMyAdmin you need to lookup the password on in the docker-compose file.
 ### Backend Administration
 
 Accounts are created with the \*accounts.js seeder file.
+
 | Email | Password |
 | ------------------------ | -------- |
 | admin@coolestprojects.be | admin |
