@@ -69,7 +69,7 @@ services :
       - /usr/src/app/node_modules
     env_file:
       - configuration.env
-    command: npm run dev2
+    command: npm run dev
     depends_on:
       - backend
     labels:
