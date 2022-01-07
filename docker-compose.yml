@@ -32,6 +32,16 @@ services :
       MYSQL_USER: coolestproject
       MYSQL_PASSWORD: Se84KCCCJlnfkdfv
 
+  db_test:
+    image: mysql/mysql-server
+    container_name: coolestproject-db-test
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: coolestproject_test
+      MYSQL_DATABASE: coolestproject_test
+      MYSQL_USER: coolestproject_test
+      MYSQL_PASSWORD: 9b6xgLku9vCP8wy2
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -66,7 +76,6 @@ services :
       NUXT_ENV_BASE_URL: https://backend.coolestprojects.localhost:1234
     volumes:
       - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
     env_file:
       - configuration.env
     command: npm run dev
@@ -84,7 +93,7 @@ services :
     environment:
       AZURITE_ACCOUNTS: "account1.blob.coolestazure:key1"
 
-    command: "azurite-blob --blobPort 1234 --loose --cert /pki/issued/account1.blob.coolestazure.localhost.crt --key /pki/private/account1.blob.coolestazure.localhost.key --blobHost coolestproject-azure --debug /configuration/azure_logs/debug.log"
+    command: "azurite-blob --blobPort 1234 --skipApiVersionCheck --loose --cert /pki/issued/account1.blob.coolestazure.localhost.crt --key /pki/private/account1.blob.coolestazure.localhost.key --blobHost coolestproject-azure --debug /configuration/azure_logs/debug.log"
     volumes:
       - ./configuration/certs/pki:/pki
       - ./configuration/azure_logs:/configuration/azure_logs

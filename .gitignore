@@ -98,3 +98,4 @@ nano.exe.stackdump
 
 configuration/azure_logs
 configuration/db
+__azurite_db_table__.json
