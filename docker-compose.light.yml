@@ -32,16 +32,6 @@ services :
       MYSQL_USER: coolestproject
       MYSQL_PASSWORD: Se84KCCCJlnfkdfv
 
-  db_test:
-    image: mysql/mysql-server
-    container_name: coolestproject-db-test
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: coolestproject_test
-      MYSQL_DATABASE: coolestproject_test
-      MYSQL_USER: coolestproject_test
-      MYSQL_PASSWORD: 9b6xgLku9vCP8wy2
-
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -50,17 +40,18 @@ services :
       - db
 
   backend:
-    image: coolestproject-backend
-    build: ./backend
+    image: node:14-slim
+    container_name: coolestproject-backend
+    working_dir: /usr/src/app
+    expose:
+      - 8080
     volumes:
       - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
     env_file:
       - configuration.env
     environment:
-      NODE_ENV: production
       DB: mysql://coolestproject:Se84KCCCJlnfkdfv@db:3306/coolestproject
-    command: npm run development
+    command: npm run development:light
     depends_on:
       - db
     labels:
@@ -70,15 +61,18 @@ services :
       - "traefik.http.routers.backend-coolestprojects.tls=true"
 
   frontend:
-    image: coolestproject-frontend
-    build: ./frontend
+    image: node:14-slim
+    container_name: coolestproject-frontend
+    working_dir: /usr/src/app
+    expose:
+      - 3000
     environment:
       NUXT_ENV_BASE_URL: https://backend.coolestprojects.localhost:1234
     volumes:
       - ./frontend:/usr/src/app
     env_file:
       - configuration.env
-    command: npm run dev
+    command: npm run dev:light
     depends_on:
       - backend
     labels:
@@ -93,7 +87,7 @@ services :
     environment:
       AZURITE_ACCOUNTS: "account1.blob.coolestazure:key1"
 
-    command: "azurite-blob --blobPort 1234 --skipApiVersionCheck --loose --cert /pki/issued/account1.blob.coolestazure.localhost.crt --key /pki/private/account1.blob.coolestazure.localhost.key --blobHost coolestproject-azure --debug /configuration/azure_logs/debug.log"
+    command: "azurite-blob --blobPort 1234 --loose --cert /pki/issued/account1.blob.coolestazure.localhost.crt --key /pki/private/account1.blob.coolestazure.localhost.key --blobHost coolestproject-azure --debug /configuration/azure_logs/debug.log"
     volumes:
       - ./configuration/certs/pki:/pki
       - ./configuration/azure_logs:/configuration/azure_logs
