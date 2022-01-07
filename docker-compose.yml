@@ -70,15 +70,18 @@ services :
       - "traefik.http.routers.backend-coolestprojects.tls=true"
 
   frontend:
-    image: coolestproject-frontend
-    build: ./frontend
+    image: node:14-slim
+    container_name: coolestproject-frontend
+    working_dir: /usr/src/app
+    expose:
+      - 3000
     environment:
       NUXT_ENV_BASE_URL: https://backend.coolestprojects.localhost:1234
     volumes:
       - ./frontend:/usr/src/app
     env_file:
       - configuration.env
-    command: npm run dev
+    command: npm run dev:light
     depends_on:
       - backend
     labels:
