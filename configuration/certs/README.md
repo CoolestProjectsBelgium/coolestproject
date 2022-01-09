@@ -11,3 +11,5 @@ easyrsa build-ca
 easyrsa build-server-full backend.coolestprojects.localhost nopass
 easyrsa build-server-full app.coolestprojects.localhost nopass
 easyrsa build-server-full azure.coolestprojects.localhost nopass
+easyrsa build-server-full voting.coolestprojects.localhost nopass
+easyrsa build-server-full screen.coolestprojects.localhost nopass

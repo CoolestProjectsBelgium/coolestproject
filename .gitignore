@@ -102,3 +102,5 @@ __azurite_db_table__.json
 
 __blobstorage__
 __queuestorage__
+
+*tmp*
