@@ -73,22 +73,42 @@ services :
     image: node:14-slim
     container_name: coolestproject-frontend
     working_dir: /usr/src/app
-    expose:
-      - 3000
     environment:
       NUXT_ENV_BASE_URL: https://backend.coolestprojects.localhost:1234
     volumes:
       - ./frontend:/usr/src/app
+      
     env_file:
       - configuration.env
     command: npm run dev:light
     depends_on:
       - backend
+    expose: [3000]
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend-coolestprojects.rule=Host(`app.coolestprojects.localhost`)"
       - "traefik.http.routers.frontend-coolestprojects.entrypoints=web"
       - "traefik.http.routers.frontend-coolestprojects.tls=true"
+
+  voting:
+    image: node:14-slim
+    container_name: coolestproject-voting
+    working_dir: /usr/src/app
+    environment:
+      NUXT_ENV_BASE_URL: https://backend.coolestprojects.localhost:1234
+    volumes:
+      - ./voting:/usr/src/app
+    env_file:
+      - configuration.env
+    command: npm run dev:light
+    expose: [3000]
+    depends_on:
+      - backend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.voting-coolestprojects.rule=Host(`voting.coolestprojects.localhost`)"
+      - "traefik.http.routers.voting-coolestprojects.entrypoints=web"
+      - "traefik.http.routers.voting-coolestprojects.tls=true"
 
   azure:
     image: mcr.microsoft.com/azure-storage/azurite
