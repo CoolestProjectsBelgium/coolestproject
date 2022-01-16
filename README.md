@@ -93,8 +93,9 @@ npx sequelize db:seed:all
 npx sequelize db:seed:all --seeders-path seeders_dataLoad
 
 # only for going to production
-npx sequelize db:seed:all --seeders-path seeders_dataLoad
 npx sequelize db:migrate
+npx sequelize db:seed:all --seeders-path seeders_dataLoad
+
 
 ```
 
