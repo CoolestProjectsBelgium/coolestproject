@@ -88,7 +88,12 @@ docker-compose up
 # connect to the backend container
 npm install -g .
 cli init_db
-npx sequelize db:seed:all
+npx sequelize db:seed:all 
+# If you want to have event 1 data from 2021 in develoment, do via phpmyadmin import final.sql
+npx sequelize db:seed:all --seeders-path seeders_dataLoad
+
+# only for going to production
+npx sequelize db:seed:all --seeders-path seeders_dataLoad
 npx sequelize db:migrate
 
 ```
