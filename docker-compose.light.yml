@@ -22,6 +22,8 @@ services :
 
   db:
     image: mysql/mysql-server
+    ports:
+      - 3306:3306
     container_name: coolestproject-db
     volumes:
       - ./configuration/db:/var/lib/mysql
