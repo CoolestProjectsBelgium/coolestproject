@@ -56,7 +56,6 @@ services :
     build: ./backend
     volumes:
       - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
     env_file:
       - configuration.env
     environment:
@@ -72,7 +71,8 @@ services :
       - "traefik.http.routers.backend-coolestprojects.tls=true"
 
   frontend:
-    image: node:14-slim
+    build:
+      context: ./frontend
     container_name: coolestproject-frontend
     working_dir: /usr/src/app
     environment:
@@ -82,7 +82,6 @@ services :
       
     env_file:
       - configuration.env
-    command: npm run dev:light
     depends_on:
       - backend
     expose: [3000]
