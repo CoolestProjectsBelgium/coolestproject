@@ -63,7 +63,8 @@ services :
       - "traefik.http.routers.backend-coolestprojects.tls=true"
 
   frontend:
-    image: node:16-slim
+    build:
+      context: ./frontend
     container_name: coolestproject-frontend
     working_dir: /usr/src/app
     expose:
