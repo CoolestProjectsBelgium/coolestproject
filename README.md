@@ -87,12 +87,13 @@ NODE_TLS_REJECT_UNAUTHORIZED=0
 docker-compose up
 # connect to the backend container
 npm install -g .
-cli init_db
+helper init_db 
+# If this does not work do:'npm install umzug' 
 npx sequelize db:seed:all 
 # If you want to have event 1 data from 2021 in develoment, do via phpmyadmin import final.sql
 npx sequelize db:seed:all --seeders-path seeders_dataLoad
 
-# only for going to production
+# only for going to production (on the development system the db is already correct by init_db)
 npx sequelize db:migrate
 npx sequelize db:seed:all --seeders-path seeders_dataLoad
 
@@ -105,8 +106,9 @@ Setup Mailtrap or similar, out credentials in configuration.env
 docker-compose up
 # connect to the backend container
 npm install -g .
-cli mail welcomeMailOwner 1
-cli mail activationMail 2
+# If this does not work do:'npm install umzug' 
+helper mail welcomeMailOwner 1
+helper mail activationMail 2
 etc...
 ```
 
