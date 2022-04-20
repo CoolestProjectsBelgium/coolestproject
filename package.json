@@ -1,0 +1,30 @@
+{
+  "name": "coolestproject",
+  "version": "1.0.0",
+  "description": "Main repository for the coolestproject application. Contains the Docker Compose development setup.",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoolestProjectsBelgium/coolestproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoolestProjectsBelgium/coolestproject/issues"
+  },
+  "homepage": "https://github.com/CoolestProjectsBelgium/coolestproject#readme",
+  "devDependencies": {
+    "cypress": "^9.1.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "nodemailer-mock": "^1.5.11"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.8.0"
+  }
+}

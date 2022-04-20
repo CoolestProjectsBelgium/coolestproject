@@ -96,7 +96,6 @@ sw.*
 *.cmd
 nano.exe.stackdump
 
-# databases
 configuration/azure_logs
 configuration/db
 __azurite_db_table__.json

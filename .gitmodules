@@ -4,3 +4,9 @@
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/CoolestProjectsBelgium/coolestproject-registratie.git
+[submodule "screen"]
+	path = screen
+	url = https://github.com/CoolestProjectsBelgium/coolestproject-screen.git
+[submodule "voting"]
+	path = voting
+	url = https://github.com/CoolestProjectsBelgium/coolestproject-voting.git
