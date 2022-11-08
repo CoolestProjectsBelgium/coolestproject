@@ -17,14 +17,14 @@
   },
   "homepage": "https://github.com/CoolestProjectsBelgium/coolestproject#readme",
   "devDependencies": {
-    "cypress": "^9.1.1",
+    "cypress": "^10.9.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
-    "nodemailer-mock": "^1.5.11"
+    "nodemailer-mock": "^1.5.12"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
   },
   "dependencies": {
-    "@azure/storage-blob": "^12.8.0"
+    "@azure/storage-blob": "^12.11.0"
   }
 }

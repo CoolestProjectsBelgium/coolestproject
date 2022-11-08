@@ -11,5 +11,8 @@
         "javascript",
         "yaml"
     ],
-    "eslint.alwaysShowStatus": true
+    "eslint.alwaysShowStatus": true,
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "2022"
+    ]
 }
