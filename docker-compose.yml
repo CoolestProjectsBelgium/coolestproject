@@ -92,7 +92,7 @@ services :
       - "traefik.http.routers.frontend-coolestprojects.tls=true"
 
   voting:
-    image: node:14-slim
+    image: node:18-slim
     container_name: coolestproject-voting
     working_dir: /usr/src/app
     environment:
