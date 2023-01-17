@@ -11,6 +11,7 @@ services :
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:1234"
+      - "--entrypoints.tcp.address=:9229"
       - "--providers.file.directory=/configuration/"
       - "--providers.file.watch=true"
     ports:
@@ -56,12 +57,14 @@ services :
     build: ./backend
     volumes:
       - ./backend:/usr/src/app
+    ports:
+      - "9229:9229" # Debug port
     env_file:
       - configuration.env
     environment:
       NODE_ENV: production
       DB: mysql://coolestproject:Se84KCCCJlnfkdfv@db:3306/coolestproject
-    command: npm run development
+    command: npm run debugging
     depends_on:
       - db
     labels:
@@ -69,6 +72,11 @@ services :
       - "traefik.http.routers.backend-coolestprojects.rule=Host(`backend.coolestprojects.localhost`)"
       - "traefik.http.routers.backend-coolestprojects.entrypoints=web"
       - "traefik.http.routers.backend-coolestprojects.tls=true"
+      - "traefik.tcp.routers.debugging.rule=HostSNI(`backend.coolestprojects.localhost`)"
+      - "traefik.tcp.routers.debugging.entrypoints=tcp"
+      - "traefik.tcp.routers.debugging.tls=true"
+      - "traefik.tcp.routers.debugging.tls.passthrough=true"
+      - "traefik.tcp.services.debugging.loadbalancer.server.port=9229"
 
   frontend:
     build:
