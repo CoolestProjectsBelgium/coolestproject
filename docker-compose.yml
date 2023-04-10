@@ -87,7 +87,6 @@ services :
       NUXT_ENV_BASE_URL: https://backend.coolestprojects.localhost:1234
     volumes:
       - ./frontend:/usr/src/app
-      
     env_file:
       - configuration.env
     depends_on:
