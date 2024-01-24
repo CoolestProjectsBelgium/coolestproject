@@ -5,3 +5,7 @@ V	230508174037Z		5C4DE487A206417017E07F056B795B	unknown	/CN=backend.coolestproje
 V	230528110233Z		E149E29B56933F8A95FED7B62BFA8B8B	unknown	/CN=account1.blob.coolestazure.localhost
 V	240413231517Z		1CDE0D474847F4228959360E396DC39E	unknown	/CN=voting.coolestprojects.localhost
 V	240413231555Z		70E9584A5279AE1025C8BABDC448AA	unknown	/CN=screen.coolestprojects.localhost
+V	270108210521Z		966F893770220956A1E3F21B75904450	unknown	/CN=account1.blob.coolestazure.localhost
+V	270108211906Z		1A164AB4666123171FA102F3939DA316	unknown	/CN=app.coolestprojects.localhost
+V	270108212033Z		B466D44ACE956421105B2EEC86AEC321	unknown	/CN=azure.coolestprojects.localhost
+V	270108212124Z		B024821ECA923ECB8EC66B246C86FBE8	unknown	/CN=backend.coolestprojects.localhost
