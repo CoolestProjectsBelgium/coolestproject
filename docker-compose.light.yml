@@ -42,7 +42,7 @@ services :
       - db
 
   backend:
-    image: node:18-slim
+    image: node:20-slim
     container_name: coolestproject-backend
     working_dir: /usr/src/app
     expose:
