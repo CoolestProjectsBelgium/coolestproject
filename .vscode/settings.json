@@ -13,6 +13,7 @@
     ],
     "eslint.alwaysShowStatus": true,
     "githubPullRequests.ignoredPullRequestBranches": [
-        "2022"
+        "2022",
+        "2024"
     ]
 }
