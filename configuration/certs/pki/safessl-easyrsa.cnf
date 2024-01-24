@@ -7,17 +7,17 @@ default_ca	= CA_default		# The default ca section
 ####################################################################
 [ CA_default ]
 
-dir		= /home/erik/coolestproject/configuration/certs/pki	# Where everything is kept
-certs		= /home/erik/coolestproject/configuration/certs/pki			# Where the issued certs are kept
-crl_dir		= /home/erik/coolestproject/configuration/certs/pki			# Where the issued crl are kept
-database	= /home/erik/coolestproject/configuration/certs/pki/index.txt	# database index file.
-new_certs_dir	= /home/erik/coolestproject/configuration/certs/pki/certs_by_serial	# default place for new certs.
+dir		= /home/michael/coolestproject/configuration/certs/pki	# Where everything is kept
+certs		= /home/michael/coolestproject/configuration/certs/pki			# Where the issued certs are kept
+crl_dir		= /home/michael/coolestproject/configuration/certs/pki			# Where the issued crl are kept
+database	= /home/michael/coolestproject/configuration/certs/pki/index.txt	# database index file.
+new_certs_dir	= /home/michael/coolestproject/configuration/certs/pki/certs_by_serial	# default place for new certs.
 
-certificate	= /home/erik/coolestproject/configuration/certs/pki/ca.crt	 	# The CA certificate
-serial		= /home/erik/coolestproject/configuration/certs/pki/serial 		# The current serial number
-crl		= /home/erik/coolestproject/configuration/certs/pki/crl.pem 		# The current CRL
-private_key	= /home/erik/coolestproject/configuration/certs/pki/private/ca.key	# The private key
-RANDFILE	= /home/erik/coolestproject/configuration/certs/pki/.rand		# private random number file
+certificate	= /home/michael/coolestproject/configuration/certs/pki/ca.crt	 	# The CA certificate
+serial		= /home/michael/coolestproject/configuration/certs/pki/serial 		# The current serial number
+crl		= /home/michael/coolestproject/configuration/certs/pki/crl.pem 		# The current CRL
+private_key	= /home/michael/coolestproject/configuration/certs/pki/private/ca.key	# The private key
+RANDFILE	= /home/michael/coolestproject/configuration/certs/pki/.rand		# private random number file
 
 x509_extensions	= basic_exts		# The extensions to add to the cert
 
@@ -25,7 +25,7 @@ x509_extensions	= basic_exts		# The extensions to add to the cert
 # is designed for will. In return, we get the Issuer attached to CRLs.
 crl_extensions	= crl_ext
 
-default_days	= 825	# how long to certify for
+default_days	= 1080	# how long to certify for
 default_crl_days= 180	# how long before next CRL
 default_md	= sha256		# use public key default MD
 preserve	= no			# keep passed DN ordering

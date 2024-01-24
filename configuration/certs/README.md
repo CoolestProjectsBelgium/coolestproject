@@ -4,6 +4,11 @@ We are using easy-rsa to generate our certificate. <https://github.com/OpenVPN/e
 The CA password in this example is "cool".
 You need to add the ca.crt file to your browsers trust store.
 
+## Renewal  flow
+/usr/share/easy-rsa/easyrsa renew screen.coolestprojects.localhost nopass
+in folder configuration/certs
+
+
 ## Example flow
 
 easyrsa init-pki
