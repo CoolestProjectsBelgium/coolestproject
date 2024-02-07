@@ -122,9 +122,9 @@ services :
     image: mcr.microsoft.com/azure-storage/azurite
     container_name: coolestproject-azure
     environment:
-      AZURITE_ACCOUNTS: "account1.blob.coolestazure:key1"
-
-    command: "azurite-blob --blobPort 1234 --skipApiVersionCheck --loose --cert /pki/issued/account1.blob.coolestazure.localhost.crt --key /pki/private/account1.blob.coolestazure.localhost.key --blobHost coolestproject-azure --debug /configuration/azure_logs/debug.log"
+      AZURITE_ACCOUNTS: "account1:Y29vbGVzdHByb2plY3Rz"
+ 
+    command: "azurite-blob --blobHost coolestproject-azure --blobPort 1234 --skipApiVersionCheck --loose --cert /pki/issued/account1.blob.coolestazure.localhost.crt --key /pki/private/account1.blob.coolestazure.localhost.key --debug /configuration/azure_logs/debug.log"
     volumes:
       - ./configuration/certs/pki:/pki
       - ./configuration/azure_logs:/configuration/azure_logs
