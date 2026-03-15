@@ -15,5 +15,6 @@
     "githubPullRequests.ignoredPullRequestBranches": [
         "2022",
         "2024"
-    ]
+    ],
+    "snyk.advanced.autoSelectOrganization": true
 }
